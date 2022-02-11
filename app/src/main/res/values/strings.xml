@@ -2,4 +2,5 @@
     <string name="app_name">ProjetIhm</string>
     <string name="Title">Qui suis-je</string>
     <string name="StartButton">Commencer</string>
+    <string name="ArchievmentButton">Archievment</string>
 </resources>
