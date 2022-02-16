@@ -3,4 +3,6 @@
     <string name="Title">Qui suis-je</string>
     <string name="StartButton">Commencer</string>
     <string name="ArchievmentButton">Archievment</string>
+    <string name="NomEntreeTitre">Name</string>
+    <string name="PrenomEntreeTitre">Prenom</string>
 </resources>
