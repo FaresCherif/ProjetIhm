@@ -2,7 +2,11 @@
     <string name="app_name">ProjetIhm</string>
     <string name="Title">Qui suis-je</string>
     <string name="StartButton">Commencer</string>
-    <string name="ArchievmentButton">Archievment</string>
-    <string name="NomEntreeTitre">Name</string>
-    <string name="PrenomEntreeTitre">Prenom</string>
+    <string name="ArchievmentButton">Succes</string>
+    <string name="NameEntreeTitle">Nom</string>
+    <string name="FirstNameEntreeTitle">Prenom</string>
+    <string name="FirstNameEntree">Prenom</string>
+    <string name="NameEntree">Nom</string>
+    <string name="charismaLevelTitle">niveau de charisme</string>
+    <string name="ChineseSignTitle">Signe astrologique chinois</string>
 </resources>

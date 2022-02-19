@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".UserInput">
 
+    <TextView
+        android:id="@+id/FirstNameEntreeAreaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/FirstNameEntreeTitle"
+        app:layout_constraintStart_toStartOf="@+id/FirstNameEntreeArea"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/FirstNameEntreeArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/FirstNameEntree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirstNameEntreeAreaTitle" />
+
+    <TextView
+        android:id="@+id/NameEntreeAreaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/NameEntreeTitle"
+        app:layout_constraintStart_toStartOf="@+id/FirstNameEntreeArea"
+        app:layout_constraintTop_toBottomOf="@+id/FirstNameEntreeArea" />
+
+    <EditText
+        android:id="@+id/NameEntreeArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/NameEntree"
+        app:layout_constraintStart_toStartOf="@+id/NameEntreeAreaTitle"
+        app:layout_constraintTop_toBottomOf="@+id/NameEntreeAreaTitle" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        app:layout_constraintEnd_toEndOf="@+id/NameEntreeArea"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/charismaLevelTitle"
+        app:layout_constraintStart_toStartOf="@+id/NameEntreeArea"
+        app:layout_constraintTop_toBottomOf="@+id/NameEntreeArea" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ChineseSignTitle"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
