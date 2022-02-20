@@ -8,9 +8,10 @@
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/startQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="callQuestion1"
         android:text="@string/startButtonEntree"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,14 +35,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/NameEntreeAreaTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/NameEntreeTitle" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/FirstNameEntreeAreaTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -54,7 +55,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/NameEntreeArea"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -66,7 +67,7 @@
                 />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/FirstNameEntreeArea"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -98,14 +99,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/charismaLevelTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/charismaLevelTitle" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/bankMoneyTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -118,13 +119,13 @@
             android:orientation="horizontal">
 
             <SeekBar
-                android:id="@+id/seekBar3"
+                android:id="@+id/seekBarCharisma"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/spinnerBankMoney"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_weight="1"

@@ -10,5 +10,14 @@
     <string name="startButtonEntree">Valider</string>
     <string name="FirstNameEntree">Gordon</string>
     <string name="NameEntree">Freeman</string>
+    <string name="numPageQuestion1">1/8</string>
+    <string name="genreTitle">Genre</string>
+    <string name="OtherGenreButton">autre</string>
+    <string name="maleGenreButton">Homme</string>
+    <string name="femaleGenreButton">Femme</string>
+    <string name="nonBinaryGenreButton">Non biinaire</string>
+    <string name="otherGenreTitle">Veuillez preciser :</string>
+    <string name="otherGenre">Xenogenre</string>
+    <string name="buttonNextQuestion1">Button</string>
 
 </resources>

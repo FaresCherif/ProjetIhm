@@ -20,13 +20,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/FirstNameEntree"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FirstNameEntreeAreaTitle"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/NameEntreeAreaTitle"
@@ -42,24 +43,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/NameEntree"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@+id/NameEntreeAreaTitle"
         app:layout_constraintTop_toBottomOf="@+id/NameEntreeAreaTitle"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck,TextContrastCheck" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/seekBarCharisma"
         android:layout_width="0dp"
         android:layout_height="46dp"
         app:layout_constraintEnd_toEndOf="@+id/NameEntreeArea"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/charismaLevelTitle"
+        app:layout_constraintTop_toBottomOf="@+id/charismaLevelTitle" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/charismaLevelTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -68,32 +70,33 @@
         app:layout_constraintTop_toBottomOf="@+id/NameEntreeArea" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerBankMoney"
         android:layout_width="255dp"
         android:layout_height="48dp"
         android:entries="@array/array_money_bank"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/bankMoneyTitle"
+        app:layout_constraintTop_toBottomOf="@+id/bankMoneyTitle"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/bankMoneyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/moneyBankTitle"
-        app:layout_constraintStart_toStartOf="@+id/seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintStart_toStartOf="@+id/seekBarCharisma"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarCharisma" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/startQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="callQuestion1"
         android:text="@string/startButtonEntree"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBankMoney" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
