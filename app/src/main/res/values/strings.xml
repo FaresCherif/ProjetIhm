@@ -8,4 +8,7 @@
     <string name="charismaLevelTitle">niveau de charisme</string>
     <string name="moneyBankTitle">Argent en banque</string>
     <string name="startButtonEntree">Valider</string>
+    <string name="FirstNameEntree">Gordon</string>
+    <string name="NameEntree">Freeman</string>
+
 </resources>
