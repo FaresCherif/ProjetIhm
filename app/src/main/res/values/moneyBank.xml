@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_money_bank">
+        <item> \u003c0 </item>
+        <item> \u003e0 \u0026\u0026 \u003c1000 </item>
+        <item> \u003e1000 \u0026\u0026 \u003c10000 </item>
+        <item> \u003e10000 \u0026\u0026 \u003c100000 </item>
+        <item> \u003e100000 </item>
+    </string-array>
+</resources>

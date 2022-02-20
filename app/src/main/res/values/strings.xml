@@ -5,8 +5,7 @@
     <string name="ArchievmentButton">Succes</string>
     <string name="NameEntreeTitle">Nom</string>
     <string name="FirstNameEntreeTitle">Prenom</string>
-    <string name="FirstNameEntree">Prenom</string>
-    <string name="NameEntree">Nom</string>
     <string name="charismaLevelTitle">niveau de charisme</string>
-    <string name="ChineseSignTitle">Signe astrologique chinois</string>
+    <string name="moneyBankTitle">Argent en banque</string>
+    <string name="startButtonEntree">Valider</string>
 </resources>
