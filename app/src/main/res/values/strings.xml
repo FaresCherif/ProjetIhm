@@ -21,11 +21,26 @@
     <string name="buttonNextQuestion1">Valider</string>
     <string name="numPageQuestion2">2/8</string>
     <string name="fidelityScrollBarTitle">Indiquez votre niveau de fidelite :</string>
-    <string name="buttonNextQuestion2">Valider</string>
     <string name="numPageQuestion3">3/8</string>
     <string name="luckScrollBarTitle">Niveau de chance</string>
     <string name="rollDiceButton">Lancer un de</string>
     <string name="buttonNextQuestion3">Valider</string>
     <string name="diceDescription">diceValue</string>
+    <string name="numPageQuestion4">4/8</string>
+    <string name="barbarianTitle">Barbare</string>
+    <string name="paladinTitle">Paladin</string>
+    <string name="babarianDescription">Image barbare</string>
+    <string name="paladinDescription">image paladin</string>
+    <string name="bardTitle">Bard</string>
+    <string name="wizardTitle">Wizard</string>
+    <string name="wizardImage">TODO</string>
+    <string name="bardImage">bardImage</string>
+    <string name="numPageQuestion5">5/8</string>
+    <string name="meteoriteTitle">Une meteorite va tomber sur Terre dans 24h. Que faites vous ?</string>
+    <string name="destroyMeteoriteButton">Je fonce dans une fusee pour detruire la meteorite</string>
+    <string name="buknerButton">Je vais dans un bunker</string>
+    <string name="cthuhlluButton">J\'invoque Cthuhllu pour qu\'il l\'a detruise</string>
+    <string name="famillyButton">Je passe mes derniers moments avec ma famille</string>
+    <string name="buttonNextQuestion2">Valider</string>
 
 </resources>

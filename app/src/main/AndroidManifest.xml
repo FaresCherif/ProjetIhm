@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetIhm">
         <activity
+            android:name=".Question6"
+            android:exported="false" />
+        <activity
+            android:name=".Question5"
+            android:exported="false" />
+        <activity
             android:name=".Result"
             android:exported="false" />
         <activity

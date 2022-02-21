@@ -5,17 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class Question4 extends AppCompatActivity {
-    private String DndClass="";
+public class Question5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question4);
+        setContentView(R.layout.activity_question5);
     }
 
-    public void chooseClass(android.view.View v){
-        Intent i =new Intent(Question4.this, Question5.class);
+    public void callNextQuestion(android.view.View v) {
+        Intent i =new Intent(Question5.this, Question6.class);
         startActivity(i);
     }
 }
