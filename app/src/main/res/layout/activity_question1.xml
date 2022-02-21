@@ -101,7 +101,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonNextQuestion1"
+        android:id="@+id/ButtonNextQuestion1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="callNextQuestion"

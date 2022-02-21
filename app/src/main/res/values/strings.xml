@@ -23,5 +23,9 @@
     <string name="fidelityScrollBarTitle">Indiquez votre niveau de fidelite :</string>
     <string name="buttonNextQuestion2">Valider</string>
     <string name="numPageQuestion3">3/8</string>
+    <string name="luckScrollBarTitle">Niveau de chance</string>
+    <string name="rollDiceButton">Lancer un de</string>
+    <string name="buttonNextQuestion3">Valider</string>
+    <string name="diceDescription">diceValue</string>
 
 </resources>
