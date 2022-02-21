@@ -34,18 +34,19 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/ButtonGenreTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/genreTitle" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/OtherGenreTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/otherGenreTitle" />
+                android:text="@string/otherGenreTitle"
+                android:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -54,45 +55,47 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/GenreButtonGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <RadioButton
-                    android:id="@+id/radioButton11"
+                    android:id="@+id/MaleGenreButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/maleGenreButton" />
 
                 <RadioButton
-                    android:id="@+id/radioButton12"
+                    android:id="@+id/FemaleGenreButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/femaleGenreButton" />
 
                 <RadioButton
-                    android:id="@+id/radioButton13"
+                    android:id="@+id/NonBinaryGenreButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/nonBinaryGenreButton" />
 
                 <RadioButton
-                    android:id="@+id/radioButton14"
+                    android:id="@+id/OtherGenreButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/OtherGenreButton" />
             </RadioGroup>
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/OtherGenre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/otherGenre"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:importantForAutofill="no" />
+                android:visibility="visible" />
 
         </LinearLayout>
     </LinearLayout>
@@ -101,6 +104,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="callNextQuestion"
         android:text="@string/buttonNextQuestion1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
