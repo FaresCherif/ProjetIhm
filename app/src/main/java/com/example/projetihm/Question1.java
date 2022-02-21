@@ -2,6 +2,7 @@ package com.example.projetihm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -59,14 +60,22 @@ public class Question1 extends AppCompatActivity {
     }
 
     public void callNextQuestion(android.view.View v){
-        int selectedId = rg.getCheckedRadioButtonId();
-        RadioButton radioButtonGenreFinal = (RadioButton) findViewById(selectedId);
+
+        if(rg.getCheckedRadioButtonId()!=-1) {
+            int selectedId = rg.getCheckedRadioButtonId();
+            RadioButton radioButtonGenreFinal = (RadioButton) findViewById(selectedId);
 
 
-        if(radioButtonGenreFinal.getId()==R.id.OtherGenreButton){
-            nameGenre=otherGenre.getText().toString();
+            if (radioButtonGenreFinal.getId() == R.id.OtherGenreButton) {
+                nameGenre = otherGenre.getText().toString();
+            }
         }
 
-        toast(nameGenre);
+        if(!nameGenre.isEmpty()){
+            Intent i =new Intent(Question1.this, Question2.class);
+            startActivity(i);
+        }else{
+            toast("Veuillez choisir un genre");
+        }
     }
 }

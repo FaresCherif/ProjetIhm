@@ -19,5 +19,6 @@
     <string name="otherGenreTitle">Veuillez preciser :</string>
     <string name="otherGenre">Xenogenre</string>
     <string name="buttonNextQuestion1">Valider</string>
+    <string name="numPageQuestion2">2/8</string>
 
 </resources>
