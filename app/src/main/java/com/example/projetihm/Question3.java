@@ -32,6 +32,7 @@ public class Question3 extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putSerializable("User", u);
         i.putExtras(bundle);
+        i.putExtra("numDe",randomNum);
         startActivity(i);
 
 

@@ -9,37 +9,40 @@ import android.widget.ImageView;
 
 public class ResultDice extends AppCompatActivity {
     User u;
+    private ImageView dice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
+        String randomNum =transmis.get("numDe").toString();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_dice);
+        dice = findViewById(R.id.ImageDice);
 
-        /*
-        change l'image selon le numero recupere
+
         switch (randomNum){
-            case 0:
+            case "0":
                 dice.setImageResource(R.drawable.dice1);
                 break;
-            case 1:
+            case "1":
                 dice.setImageResource(R.drawable.dice2);
                 break;
-            case 2:
+            case "2":
                 dice.setImageResource(R.drawable.dice3);
                 break;
-            case 3:
+            case "3":
                 dice.setImageResource(R.drawable.dice4);
                 break;
-            case 4:
+            case "4":
                 dice.setImageResource(R.drawable.dice5);
                 break;
-            case 5:
+            case "5":
                 dice.setImageResource(R.drawable.dice6);
                 break;
         }
-        */
+
 
     }
 

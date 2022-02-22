@@ -19,7 +19,7 @@ public class Result extends AppCompatActivity {
         fullName = findViewById(R.id.FullName);
 
         fullName.setText(u.getFirstname()+" "+u.getName());
-        //toast(u.getFirstname()+" "+u.getName());
+        toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
     }
 
     public void toast(String msg) {

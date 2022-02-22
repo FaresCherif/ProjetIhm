@@ -117,6 +117,7 @@ public class Question4 extends AppCompatActivity {
                     in.close();
                 }
 
+
                 return new BitmapDrawable(bMap);
 
             } catch (Exception e) {
