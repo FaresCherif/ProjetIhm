@@ -31,6 +31,7 @@
         android:id="@+id/buttonArchievment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="callSuccess"
         android:text="@string/ArchievmentButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonStart"

@@ -16,9 +16,13 @@ public class Question1 extends AppCompatActivity {
     private EditText otherGenre;
     RadioGroup rg;
     private String nameGenre="";
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question1);
         otherGenreTitle = findViewById(R.id.OtherGenreTitle);
@@ -27,7 +31,7 @@ public class Question1 extends AppCompatActivity {
         otherGenreTitle.setVisibility(View.INVISIBLE);
         otherGenre.setVisibility(View.INVISIBLE);
 
-        rg = (RadioGroup) findViewById(R.id.GenreButtonGroup);
+        rg = findViewById(R.id.GenreButtonGroup);
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -63,7 +67,7 @@ public class Question1 extends AppCompatActivity {
 
         if(rg.getCheckedRadioButtonId()!=-1) {
             int selectedId = rg.getCheckedRadioButtonId();
-            RadioButton radioButtonGenreFinal = (RadioButton) findViewById(selectedId);
+            RadioButton radioButtonGenreFinal = findViewById(selectedId);
 
 
             if (radioButtonGenreFinal.getId() == R.id.OtherGenreButton) {
@@ -73,6 +77,9 @@ public class Question1 extends AppCompatActivity {
 
         if(!nameGenre.isEmpty()){
             Intent i =new Intent(Question1.this, Question2.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("User", u);
+            i.putExtras(bundle);
             startActivity(i);
         }else{
             toast("Veuillez choisir un genre");
