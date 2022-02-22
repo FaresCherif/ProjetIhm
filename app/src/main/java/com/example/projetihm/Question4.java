@@ -56,6 +56,16 @@ public class Question4 extends AppCompatActivity {
         bundle.putSerializable("User", u);
         i.putExtras(bundle);
         startActivity(i);
+        if(bard.isPressed()){
+            u.addRomance(1);
+        }else if(magi.isPressed()){
+            u.addTemerity(-1);
+        }else if(barb.isPressed()){
+            u.addTemerity(3);
+        }else if(pal.isPressed()){
+            u.addTemerity(1);
+            u.addRomance(1);
+        }
     }
 
 
