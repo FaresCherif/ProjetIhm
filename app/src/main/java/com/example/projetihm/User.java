@@ -19,7 +19,7 @@ public class User implements Serializable {
     }
 
     public void addRomance(float r){
-        this.temerityLevel+=r;
+        this.romanceLevel+=r;
     }
 
     public void setGender(String g){

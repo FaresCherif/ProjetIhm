@@ -15,30 +15,36 @@ public class ResultDice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
-        String randomNum =transmis.get("numDe").toString();
+        int randomNum = Integer.parseInt(transmis.get("numDe").toString());
+        int numChance = Integer.parseInt(transmis.get("numChance").toString());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_dice);
         dice = findViewById(R.id.ImageDice);
 
+        if(numChance>=randomNum){
+            u.addRomance(numChance);
+        }else{
+            u.addRomance(numChance-randomNum);
+        }
 
         switch (randomNum){
-            case "0":
+            case 0:
                 dice.setImageResource(R.drawable.dice1);
                 break;
-            case "1":
+            case 1:
                 dice.setImageResource(R.drawable.dice2);
                 break;
-            case "2":
+            case 2:
                 dice.setImageResource(R.drawable.dice3);
                 break;
-            case "3":
+            case 3:
                 dice.setImageResource(R.drawable.dice4);
                 break;
-            case "4":
+            case 4:
                 dice.setImageResource(R.drawable.dice5);
                 break;
-            case "5":
+            case 5:
                 dice.setImageResource(R.drawable.dice6);
                 break;
         }
