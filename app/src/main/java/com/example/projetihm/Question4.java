@@ -23,10 +23,14 @@ public class Question4 extends AppCompatActivity {
     private ImageButton pal;
     private ImageButton magi;
     private ImageButton bard;
+    private User u;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question4);
 
@@ -48,20 +52,28 @@ public class Question4 extends AppCompatActivity {
 
     public void chooseClass(android.view.View v){
         Intent i =new Intent(Question4.this, Question5.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u);
+        i.putExtras(bundle);
         startActivity(i);
     }
 
 
     private void setImage(Drawable drawable,String classe)
     {
-        if (classe.equals("barb")){
-            barb.setBackgroundDrawable(drawable);
-        }else if(classe.equals("pal")){
-            pal.setBackgroundDrawable(drawable);
-        }else if(classe.equals("bard")){
-            bard.setBackgroundDrawable(drawable);
-        }else if(classe.equals("magi")){
-            magi.setBackgroundDrawable(drawable);
+        switch (classe){
+            case ("barb") :
+                barb.setImageDrawable(drawable);
+                break;
+            case ("pal") :
+                pal.setImageDrawable(drawable);
+                break;
+            case ("bard"):
+                bard.setImageDrawable(drawable);
+                break;
+            case ("magi") :
+                magi.setImageDrawable(drawable);
+                break;
         }
 
     }
@@ -100,9 +112,6 @@ public class Question4 extends AppCompatActivity {
                 Bitmap bMap = BitmapFactory.decodeStream(buf);
                 if (in != null) {
                     in.close();
-                }
-                if (buf != null) {
-                    buf.close();
                 }
 
                 return new BitmapDrawable(bMap);

@@ -76,6 +76,7 @@ public class Question1 extends AppCompatActivity {
         }
 
         if(!nameGenre.isEmpty()){
+            u.setGender(nameGenre);
             Intent i =new Intent(Question1.this, Question2.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("User", u);
