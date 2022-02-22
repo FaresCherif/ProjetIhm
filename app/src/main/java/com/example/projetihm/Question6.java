@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public class Question6 extends AppCompatActivity {
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

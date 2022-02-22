@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class UserInput extends AppCompatActivity {
     private EditText firstName;
     private EditText lastName;
@@ -29,6 +30,8 @@ public class UserInput extends AppCompatActivity {
 
 
         if(!firstName.getText().toString().isEmpty()&&!lastName.getText().toString().isEmpty()) {
+            User u=new User(firstName.getText().toString(),lastName.getText().toString());
+
             Intent i = new Intent(UserInput.this, Question1.class);
             startActivity(i);
         }

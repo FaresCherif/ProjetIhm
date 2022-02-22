@@ -9,12 +9,13 @@ import android.widget.Toast;
 
 public class Question5 extends AppCompatActivity {
     RadioGroup rg;
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question5);
-        rg = (RadioGroup) findViewById(R.id.MeteoriteButtonGroup);
+        rg = findViewById(R.id.MeteoriteButtonGroup);
 
     }
 

@@ -16,6 +16,7 @@ public class Question1 extends AppCompatActivity {
     private EditText otherGenre;
     RadioGroup rg;
     private String nameGenre="";
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class Question1 extends AppCompatActivity {
         otherGenreTitle.setVisibility(View.INVISIBLE);
         otherGenre.setVisibility(View.INVISIBLE);
 
-        rg = (RadioGroup) findViewById(R.id.GenreButtonGroup);
+        rg = findViewById(R.id.GenreButtonGroup);
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -63,7 +64,7 @@ public class Question1 extends AppCompatActivity {
 
         if(rg.getCheckedRadioButtonId()!=-1) {
             int selectedId = rg.getCheckedRadioButtonId();
-            RadioButton radioButtonGenreFinal = (RadioButton) findViewById(selectedId);
+            RadioButton radioButtonGenreFinal = findViewById(selectedId);
 
 
             if (radioButtonGenreFinal.getId() == R.id.OtherGenreButton) {

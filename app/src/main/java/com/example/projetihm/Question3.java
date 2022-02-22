@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import java.util.Random;
 
 public class Question3 extends AppCompatActivity {
-
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

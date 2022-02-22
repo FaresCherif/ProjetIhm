@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 public class Question4 extends AppCompatActivity {
     private String DndClass="";
+    User u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

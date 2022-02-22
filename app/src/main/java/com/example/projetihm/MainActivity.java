@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i =new Intent(MainActivity.this, UserInput.class);
         startActivity(i);
     }
+
+    public void callSuccess(android.view.View v){
+        Intent i =new Intent(MainActivity.this, Success.class);
+        startActivity(i);
+    }
 }
