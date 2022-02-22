@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class Question2 extends AppCompatActivity {
     private User u;
@@ -16,8 +17,13 @@ public class Question2 extends AppCompatActivity {
         u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
+        toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
 
         sb=findViewById(R.id.FidelityScrollBar);
+    }
+
+    public void toast(String msg) {
+        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
 
     public void callNextQuestion(android.view.View v) {

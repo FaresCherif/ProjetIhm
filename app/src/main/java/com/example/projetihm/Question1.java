@@ -70,8 +70,18 @@ public class Question1 extends AppCompatActivity {
             RadioButton radioButtonGenreFinal = findViewById(selectedId);
 
 
-            if (radioButtonGenreFinal.getId() == R.id.OtherGenreButton) {
-                nameGenre = otherGenre.getText().toString();
+            switch (radioButtonGenreFinal.getId()) {
+                case R.id.OtherGenreButton:
+                    nameGenre = otherGenre.getText().toString();
+                    break;
+                case R.id.MaleGenreButton:
+                    u.addRomance(-1);
+                    u.addTemerity(1);
+                    break;
+                case R.id.FemaleGenreButton:
+                    u.addRomance(1);
+                    u.addTemerity(-1);
+                    break;
             }
         }
 
