@@ -21,9 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/RollDiceButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PageNumberQuestion3">
@@ -51,33 +52,11 @@
         android:id="@+id/RollDiceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:onClick="rollDice"
         android:text="@string/rollDiceButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <ImageView
-        android:id="@+id/DiceImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/RollDiceButton"
-        app:layout_constraintStart_toStartOf="@+id/RollDiceButton"
-        app:layout_constraintTop_toBottomOf="@+id/RollDiceButton"
-        app:srcCompat="@drawable/dice1"
-        android:contentDescription="@string/diceDescription" />
-
-    <Button
-        android:id="@+id/ButtonNextQuestion3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="callNextQuestion"
-        android:text="@string/buttonNextQuestion3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/DiceImage"
-        app:layout_constraintStart_toStartOf="@+id/DiceImage"
-        app:layout_constraintTop_toBottomOf="@+id/DiceImage" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
