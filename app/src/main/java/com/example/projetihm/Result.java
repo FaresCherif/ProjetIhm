@@ -3,10 +3,12 @@ package com.example.projetihm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Result extends AppCompatActivity {
-    User u;
+    private User u;
+    private TextView fullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +16,10 @@ public class Result extends AppCompatActivity {
         u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        toast(u.getFirstname()+" "+u.getName());
+        fullName = findViewById(R.id.FullName);
+
+        fullName.setText(u.getFirstname()+" "+u.getName());
+        //toast(u.getFirstname()+" "+u.getName());
     }
 
     public void toast(String msg) {
