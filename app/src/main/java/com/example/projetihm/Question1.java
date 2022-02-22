@@ -20,6 +20,9 @@ public class Question1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question1);
         otherGenreTitle = findViewById(R.id.OtherGenreTitle);
@@ -74,6 +77,9 @@ public class Question1 extends AppCompatActivity {
 
         if(!nameGenre.isEmpty()){
             Intent i =new Intent(Question1.this, Question2.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("User", u);
+            i.putExtras(bundle);
             startActivity(i);
         }else{
             toast("Veuillez choisir un genre");

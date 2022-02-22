@@ -12,6 +12,8 @@ public class ResultDice extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_dice);
 
@@ -43,6 +45,9 @@ public class ResultDice extends AppCompatActivity {
 
     public void callNextQuestion(android.view.View v) {
         Intent i =new Intent(ResultDice.this, Question4.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u);
+        i.putExtras(bundle);
         startActivity(i);
     }
 }

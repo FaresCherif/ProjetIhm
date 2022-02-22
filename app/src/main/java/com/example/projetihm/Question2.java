@@ -10,12 +10,17 @@ public class Question2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
     }
 
     public void callNextQuestion(android.view.View v) {
         Intent i =new Intent(Question2.this, Question3.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u);
+        i.putExtras(bundle);
         startActivity(i);
     }
 

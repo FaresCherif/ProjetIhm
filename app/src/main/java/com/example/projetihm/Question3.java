@@ -16,6 +16,8 @@ public class Question3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle transmis = getIntent().getExtras();
+        u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question3);
 
@@ -27,6 +29,9 @@ public class Question3 extends AppCompatActivity {
         Random rand = new Random();
         int randomNum = rand.nextInt((5) + 1) ;
         Intent i =new Intent(Question3.this, ResultDice.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u);
+        i.putExtras(bundle);
         startActivity(i);
 
 

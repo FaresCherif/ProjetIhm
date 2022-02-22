@@ -1,6 +1,8 @@
 package com.example.projetihm;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String firstname;
     private String name;
     private String gender;

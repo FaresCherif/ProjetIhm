@@ -33,6 +33,9 @@ public class UserInput extends AppCompatActivity {
             User u=new User(firstName.getText().toString(),lastName.getText().toString());
 
             Intent i = new Intent(UserInput.this, Question1.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("User", u);
+            i.putExtras(bundle);
             startActivity(i);
         }
         else{
