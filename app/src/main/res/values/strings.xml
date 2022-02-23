@@ -51,5 +51,10 @@
     <string name="switchConference">Une conférence sur le nucleaire d\'hier et de demain</string>
     <string name="switchUrbex">De l\'urbex</string>
     <string name="resultDiceTitle">Resultat du de</string>
+    <string name="ImageResultDescription">Image result</string>
+    <string name="perfectLover">Vous etes un amoureux parfaitement equilbre, l\'oiseau rare apportant bonheur et prosperite a votre partenaire</string>
+    <string name="balancedLover">Vous etes plutot moyen. Aimez votre sucre pas trop sucre, votre sel pas trop salé. Vous votez extrem centre et gagnez a tout les no oui ni non. Votre relation ne sera ni bien ni mal, elle sera plate et sans saveur comme votre vie</string>
+    <string name="temerityLover">Vous etes un casse cou , un fou dangereu.Sortir avec la fille du patron d\'un gang pour la larguer, c\'est ce qui vous branche. Votre relation ne vous interesse que si elle est interdite. Finirez-vous mort avant vos 30 and apres avoir sauter sans parachute dans un volcan ? Surement mais c\'est toujours mieux que de finir a 80 ans avec une famille aimante</string>
+    <string name="romanceLover">On a compris, vous etes amoureux. Passez a autre chose . Ce n\'est pas mignon c\'est flippant. Tout le monde autour de vous pense que vous allez faire un remake de \"You\" . ARRETEZ</string>
 
 </resources>
