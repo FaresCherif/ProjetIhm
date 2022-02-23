@@ -9,16 +9,25 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Question5 extends AppCompatActivity {
-    RadioGroup rg;
-    User u;
+    private RadioGroup rg;
+    private User u;
+    private User savedU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
+        savedU = new User(u);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question5);
         rg = findViewById(R.id.MeteoriteButtonGroup);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        u=new User(savedU);
     }
 
     public void toast(String msg) {

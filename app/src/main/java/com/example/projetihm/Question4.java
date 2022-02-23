@@ -24,6 +24,7 @@ public class Question4 extends AppCompatActivity {
     private ImageButton magi;
     private ImageButton bard;
     private User u;
+    private User savedU;
 
 
 
@@ -31,6 +32,8 @@ public class Question4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
+        savedU = new User(u);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question4);
 
@@ -48,6 +51,12 @@ public class Question4 extends AppCompatActivity {
         new DownloadImage().execute("https://www.aidedd.org/assets/regles/classes/barde.jpg", "bard");
         new DownloadImage().execute("https://www.aidedd.org/assets/regles/classes/paladin.jpg", "pal");
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        u=new User(savedU);
     }
 
     public void chooseClass(android.view.View v){

@@ -17,6 +17,17 @@ public class User implements Serializable {
         perksList=new ArrayList<>();
     }
 
+    public User(User u){
+        this.firstname=u.firstname;
+        this.name=u.name;
+        this.gender=u.gender;
+        this.temerityLevel=u.temerityLevel;
+        this.romanceLevel=u.romanceLevel;
+        this.perksList=new ArrayList<>();
+        this.perksList.addAll(u.perksList);
+
+    }
+
     public void addTemerity(float t){
         this.temerityLevel+=t;
     }

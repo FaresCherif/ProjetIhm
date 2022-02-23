@@ -8,22 +8,31 @@ import android.os.Bundle;
 import android.widget.Switch;
 
 public class Question6 extends AppCompatActivity {
-    User u;
-    SwitchCompat nuclear;
-    SwitchCompat urbex;
-    SwitchCompat movie;
-    SwitchCompat restarurant;
+    private User u;
+    private User savedU;
+    private SwitchCompat nuclear;
+    private SwitchCompat urbex;
+    private SwitchCompat movie;
+    private SwitchCompat restarurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
+        savedU = new User(u);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question6);
         nuclear = findViewById(R.id.nuclear);
         urbex = findViewById(R.id.urbex);
         movie = findViewById(R.id.movie);
         restarurant = findViewById(R.id.restaurant);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        u=new User(savedU);
     }
 
     public void callNextQuestion(android.view.View v) {

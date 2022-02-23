@@ -24,28 +24,29 @@ public class Result extends AppCompatActivity {
         image= findViewById(R.id.ImageResult);
         texteResult=findViewById(R.id.ResultText);
 
-        fullName.setText(u.getFirstname()+" "+u.getName());
+        String full = u.getFirstname()+" "+u.getName();
+        fullName.setText(full);
         toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
 
 
         if(u.containsPerk("rich")){
-            image.setImageResource(R.drawable.resultlove);
+            image.setImageResource(R.drawable.richlover);
             texteResult.setText(R.string.richLover);
         }
         else if(u.getTemerityLevel()>5 && u.getRomanceLevel() > 5){
-            image.setImageResource(R.drawable.resultlove);
+            image.setImageResource(R.drawable.perfectlover);
             texteResult.setText(R.string.perfectLover);
         }
         else if(between(u.getTemerityLevel(),0,5) && between(u.getRomanceLevel(),0,5)){
-            image.setImageResource(R.drawable.resultlove);
+            image.setImageResource(R.drawable.balancedlover);
             texteResult.setText(R.string.balancedLover);
         }
         else if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
-            image.setImageResource(R.drawable.resultlove);
+            image.setImageResource(R.drawable.temeritylover);
             texteResult.setText(R.string.temerityLover);
         }
         else if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
-            image.setImageResource(R.drawable.resultlove);
+            image.setImageResource(R.drawable.romancelover);
             texteResult.setText(R.string.romanceLover);
         }
     }

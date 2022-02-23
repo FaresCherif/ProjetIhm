@@ -14,14 +14,16 @@ import android.widget.Toast;
 public class Question1 extends AppCompatActivity {
     private TextView otherGenreTitle;
     private EditText otherGenre;
-    RadioGroup rg;
+    private RadioGroup rg;
     private String nameGenre="";
-    User u;
+    private User u;
+    private User savedU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle transmis = getIntent().getExtras();
         u = (User) transmis.getSerializable("User");
+        savedU = new User(u);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question1);
@@ -58,6 +60,12 @@ public class Question1 extends AppCompatActivity {
             }
         });
     }
+    
+    @Override
+    public void onResume(){
+        super.onResume();
+        u=new User(savedU);
+    }
 
     public void toast(String msg) {
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
@@ -70,20 +78,19 @@ public class Question1 extends AppCompatActivity {
             RadioButton radioButtonGenreFinal = findViewById(selectedId);
 
 
-            switch (radioButtonGenreFinal.getId()) {
-                case R.id.OtherGenreButton:
-                    nameGenre = otherGenre.getText().toString();
-                    break;
-                case R.id.MaleGenreButton:
-                    u.addRomance(-1);
-                    u.addTemerity(1);
-                    break;
-                case R.id.FemaleGenreButton:
-                    u.addRomance(1);
-                    u.addTemerity(-1);
-                    break;
+            if(radioButtonGenreFinal.getId() == R.id.OtherGenreButton) {
+                nameGenre = otherGenre.getText().toString();
+            }
+            else if(radioButtonGenreFinal.getId() == R.id.MaleGenreButton) {
+                u.addRomance(-1);
+                u.addTemerity(1);
+            }
+            else if(radioButtonGenreFinal.getId() == R.id.FemaleGenreButton) {
+                u.addRomance(1);
+                u.addTemerity(-1);
             }
         }
+
 
         if(!nameGenre.isEmpty()){
             u.setGender(nameGenre);
