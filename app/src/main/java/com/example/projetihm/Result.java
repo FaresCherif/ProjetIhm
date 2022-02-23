@@ -62,4 +62,7 @@ public class Result extends AppCompatActivity {
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
 
+    public void closeApp(android.view.View v){
+        finishAffinity();
+    }
 }

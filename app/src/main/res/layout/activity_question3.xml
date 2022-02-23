@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Question3">
+    tools:context=".Question3"
+    android:configChanges="orientation|screenSize">
 
     <TextView
         android:id="@+id/PageNumberQuestion3"
@@ -52,12 +53,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />
 
-            <Button
-                android:id="@+id/RollDiceButton"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="rollDice"
-                android:text="@string/rollDiceButton" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="back"
+                    android:text="@string/backButton" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/RollDiceButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="rollDice"
+                    android:text="@string/rollDiceButton" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/imageDice"
@@ -70,29 +102,38 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="40dp" />
 
-            <TextView
-                android:id="@+id/TextResultDice"
+            <LinearLayout
+                android:id="@+id/layoutButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/ButtonNextQuestion3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="callNextQuestion"
+                    android:text="@string/buttonNextQuestion" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="40dp" />
 
-            <Button
-                android:id="@+id/ButtonNextQuestion3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="callNextQuestion"
-                android:text="@string/buttonNextQuestion3"
-                android:visibility="invisible" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
         </LinearLayout>
     </ScrollView>
 

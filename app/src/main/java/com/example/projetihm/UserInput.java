@@ -27,6 +27,10 @@ public class UserInput extends AppCompatActivity {
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
 
+    public void back(android.view.View v){
+        finish();
+    }
+
     public void callQuestion1(android.view.View v){
         firstName=findViewById(R.id.FirstNameEntreeArea);
         lastName=findViewById(R.id.NameEntreeArea);

@@ -35,6 +35,10 @@ public class Question6 extends AppCompatActivity {
         u=new User(savedU);
     }
 
+    public void back(android.view.View v){
+        finish();
+    }
+
     public void callNextQuestion(android.view.View v) {
         if (urbex.isChecked()){
             u.addTemerity(3);

@@ -11,4 +11,8 @@ public class Success extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
     }
+
+    public void back(android.view.View v){
+        finish();
+    }
 }

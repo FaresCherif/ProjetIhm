@@ -1,61 +1,58 @@
 <resources>
-    <string name="app_name">ProjetIhm</string>
-    <string name="Title">Qui suis-je</string>
-    <string name="StartButton">Commencer</string>
-    <string name="ArchievmentButton">Succes</string>
-    <string name="NameEntreeTitle">Nom</string>
-    <string name="FirstNameEntreeTitle">Prenom</string>
-    <string name="charismaLevelTitle">niveau de charisme</string>
-    <string name="moneyBankTitle">Argent en banque</string>
-    <string name="startButtonEntree">Valider</string>
-    <string name="FirstNameEntree">Gordon</string>
-    <string name="NameEntree">Freeman</string>
-    <string name="numPageQuestion1" translatable="false">1/8</string>
+    <string name="app_name" translatable="false">ProjetIhm</string>
+    <string name="NameEntreeTitle">Name</string>
+    <string name="charismaLevelTitle">charisma level</string>
+    <string name="FirstNameEntree" translatable="false">Gordon</string>
+    <string name="NameEntree" translatable="false">Freeman</string>
+    <string name="numPageQuestion1" translatable="false">1/6</string>
     <string name="genreTitle">Genre</string>
-    <string name="OtherGenreButton">autre</string>
-    <string name="maleGenreButton">Homme</string>
-    <string name="femaleGenreButton">Femme</string>
-    <string name="nonBinaryGenreButton">Non biinaire</string>
-    <string name="otherGenreTitle">Veuillez preciser :</string>
-    <string name="otherGenre">Xenogenre</string>
-    <string name="buttonNextQuestion1">Valider</string>
-    <string name="numPageQuestion2">2/8</string>
-    <string name="fidelityScrollBarTitle">Indiquez votre niveau de fidelite :</string>
-    <string name="numPageQuestion3">3/8</string>
-    <string name="luckScrollBarTitle">Niveau de chance</string>
-    <string name="rollDiceButton">Lancer un de</string>
-    <string name="buttonNextQuestion3">Valider</string>
+    <string name="nonBinaryGenreButton">Non biinary</string>
+    <string name="otherGenre">xenogeneic</string>
+    <string name="numPageQuestion2" translatable="false">2/6</string>
+    <string name="numPageQuestion3" translatable="false">3/6</string>
+    <string name="luckScrollBarTitle">Luck level</string>
+    <string name="rollDiceButton">Roll a dice</string>
     <string name="diceDescription">diceValue</string>
-    <string name="numPageQuestion4">4/8</string>
-    <string name="barbarianTitle">Barbare</string>
+    <string name="numPageQuestion4" translatable="false">4/6</string>
     <string name="paladinTitle">Paladin</string>
-    <string name="babarianDescription">Image barbare</string>
+    <string name="babarianDescription">Image barbarian</string>
     <string name="paladinDescription">image paladin</string>
     <string name="bardTitle">Bard</string>
     <string name="wizardTitle">Wizard</string>
-    <string name="wizardImage">TODO</string>
+    <string name="wizardImage">wizard image</string>
     <string name="bardImage">bardImage</string>
-    <string name="numPageQuestion5">5/8</string>
-    <string name="meteoriteTitle">Une meteorite va tomber sur Terre dans 24h. Que faites vous ?</string>
-    <string name="destroyMeteoriteButton">Je fonce dans une fusee pour detruire la meteorite</string>
-    <string name="buknerButton">Je vais dans un bunker</string>
-    <string name="cthuhlluButton">J\'invoque Cthuhllu pour qu\'il l\'a detruise</string>
-    <string name="famillyButton">Je passe mes derniers moments avec ma famille</string>
-    <string name="buttonNextQuestion2">Valider</string>
-    <string name="numPageQuestion6">6/8</string>
-    <string name="romanticTitle">Qu\'elle est votre idee d\'un rendez-vous romantique ?</string>
-    <string name="buttonNextQuestion5">Valider</string>
-    <string name="buttonNextQuestion6">Valider</string>
-    <string name="switchCinema">Une soiree cinema</string>
-    <string name="switchRestorant">Un resto</string>
-    <string name="switchConference">Une conférence sur le nucleaire d\'hier et de demain</string>
-    <string name="switchUrbex">De l\'urbex</string>
-    <string name="resultDiceTitle">Resultat du de</string>
+    <string name="numPageQuestion5" translatable="false">5/6</string>
+    <string name="buknerButton">I\'m going in a bunker</string>
+    <string name="buttonNextQuestion">Confirm</string>
+    <string name="numPageQuestion6" translatable="false">6/6</string>
     <string name="ImageResultDescription">Image result</string>
-    <string name="perfectLover">Vous etes un amoureux parfaitement equilbre, l\'oiseau rare apportant bonheur et prosperite a votre partenaire</string>
-    <string name="balancedLover">Vous etes plutot moyen. Aimez votre sucre pas trop sucre, votre sel pas trop salé. Vous votez extrem centre et gagnez a tout les no oui ni non. Votre relation ne sera ni bien ni mal, elle sera plate et sans saveur comme votre vie</string>
-    <string name="temerityLover">Vous etes un casse cou , un fou dangereu.Sortir avec la fille du patron d\'un gang pour la larguer, c\'est ce qui vous branche. Votre relation ne vous interesse que si elle est interdite. Finirez-vous mort avant vos 30 and apres avoir sauter sans parachute dans un volcan ? Surement mais c\'est toujours mieux que de finir a 80 ans avec une famille aimante</string>
-    <string name="romanceLover">On a compris, vous etes amoureux. Passez a autre chose . Ce n\'est pas mignon c\'est flippant. Tout le monde autour de vous pense que vous allez faire un remake de \"You\" . ARRETEZ</string>
-    <string name="richLover">Vous etes riche. Vous voullez de la romance, allez en Thailande. Vous verrez des tas de personnes avoir le coup de foudre pour votre portefeuille.</string>
+    <string name="otherGenreTitle">Precision :</string>
+    <string name="switchRestorant">A restaurant</string>
+    <string name="switchCinema">A theater night</string>
+    <string name="meteoriteTitle">A meteorite is gonna crash in 24. What do you do ?</string>
+    <string name="switchConference">A nuclear conference with no appetizer</string>
+    <string name="ArchievmentButton">Archievement</string>
+    <string name="backButton">Back</string>
+    <string name="resultDiceTitle">dice result</string>
+    <string name="Title">Who am I</string>
+    <string name="romanticTitle">How do you see a romantic date ?</string>
+    <string name="FirstNameEntreeTitle">First name</string>
+    <string name="famillyButton">I\'m spending my last moments with my family</string>
+    <string name="destroyMeteoriteButton">I\'m rushing to destroy the meteorite</string>
+    <string name="cthuhlluButton">I invoke cthullu and hope for the best</string>
+    <string name="fidelityScrollBarTitle">Indicate your fidelity level</string>
+    <string name="maleGenreButton">Man</string>
+    <string name="closeApp">Close the application</string>
+    <string name="femaleGenreButton">Woman</string>
+    <string name="switchUrbex">Urbex exploration</string>
+    <string name="StartButton">Start</string>
+    <string name="barbarianTitle">Barbarian</string>
+    <string name="OtherGenreButton">other</string>
+    <string name="moneyBankTitle">Money in the bank</string>
+    <string name="romanceLover">We get it, you\'re in love. Please move on. It isn\'t cute, it\'s creepy. Everyone wonder if you\'ll do a redo of you or of american psycho</string>
+    <string name="temerityLover">You\'re a hot head, a crazy *censored* . What\'s the point of life if you can live past 30 ? None you\'re right.  Will you have a loving family ? Probably not, but hey that\'s some basic *censored* *censored*. So enjoy a *censored* *censored* at *censored* so you can *censored* *censored* *censored* and if your crazy enough might as well *censored* *censored* with a *censored* *censored* banana *censored* *censored*</string>
+    <string name="perfectLover">You\'re the basic result of the developper, so you\'re simply perfect, can\'t do anything wrong and are basically the second coming of Crhist. So you\'re just the perfect love, and if you\'re partner can\'t see it it\'s her fault. Eating pinaple isn\'t a reason to breakup Linda. I\'m not crying, you\'re crying</string>
+    <string name="richLover">You\'re rich, probably in a capitalist country. You can ba</string>
+    <string name="balancedLover">"You're a basic *censored* "</string>
 
 </resources>

@@ -67,6 +67,10 @@ public class Question1 extends AppCompatActivity {
         u=new User(savedU);
     }
 
+    public void back(android.view.View v){
+        finish();
+    }
+
     public void toast(String msg) {
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }

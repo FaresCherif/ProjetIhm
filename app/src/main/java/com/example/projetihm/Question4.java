@@ -97,7 +97,9 @@ public class Question4 extends AppCompatActivity {
 
     }
 
-
+    public void back(android.view.View v){
+        finish();
+    }
 
     public class DownloadImage extends AsyncTask<String, Integer, Drawable> {
 
