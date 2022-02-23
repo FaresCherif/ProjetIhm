@@ -14,6 +14,7 @@ public class User implements Serializable {
     public User(String f,String n){
         this.firstname=f;
         this.name=n;
+        perksList=new ArrayList<>();
     }
 
     public void addTemerity(float t){

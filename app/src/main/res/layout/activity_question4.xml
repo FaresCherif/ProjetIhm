@@ -61,8 +61,8 @@
 
             <ImageButton
                 android:id="@+id/barbarianImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/babarianDescription"
                 android:onClick="chooseClass"
@@ -76,8 +76,8 @@
 
             <ImageButton
                 android:id="@+id/paladinImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/paladinDescription"
                 android:onClick="chooseClass"
@@ -133,13 +133,13 @@
 
             <ImageButton
                 android:id="@+id/wizardImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/wizardImage"
                 android:onClick="chooseClass"
                 tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/wizardImage" />
+                tools:srcCompat="@tools:sample/avatars" />
 
             <Space
                 android:layout_width="0dp"
@@ -148,13 +148,13 @@
 
             <ImageButton
                 android:id="@+id/bardImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/bardImage"
                 android:onClick="chooseClass"
                 tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/bardImage" />
+                tools:srcCompat="@tools:sample/avatars" />
 
         </LinearLayout>
 

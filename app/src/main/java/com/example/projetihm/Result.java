@@ -28,19 +28,23 @@ public class Result extends AppCompatActivity {
         toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
 
 
-        if(u.getTemerityLevel()>5 && u.getRomanceLevel() > 5){
+        if(u.containsPerk("rich")){
+            image.setImageResource(R.drawable.resultlove);
+            texteResult.setText(R.string.richLover);
+        }
+        else if(u.getTemerityLevel()>5 && u.getRomanceLevel() > 5){
             image.setImageResource(R.drawable.resultlove);
             texteResult.setText(R.string.perfectLover);
         }
-        if(between(u.getTemerityLevel(),0,5) && between(u.getRomanceLevel(),0,5)){
+        else if(between(u.getTemerityLevel(),0,5) && between(u.getRomanceLevel(),0,5)){
             image.setImageResource(R.drawable.resultlove);
             texteResult.setText(R.string.balancedLover);
         }
-        if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
+        else if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
             image.setImageResource(R.drawable.resultlove);
             texteResult.setText(R.string.temerityLover);
         }
-        if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
+        else if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
             image.setImageResource(R.drawable.resultlove);
             texteResult.setText(R.string.romanceLover);
         }
