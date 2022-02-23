@@ -27,20 +27,24 @@ public class Question6 extends AppCompatActivity {
     }
 
     public void callNextQuestion(android.view.View v) {
+        if (urbex.isChecked()){
+            u.addTemerity(3);
+        }
+        if (nuclear.isChecked()){
+            u.addTemerity(-1);
+            u.addRomance(-1);
+        }
+        if (movie.isChecked()){
+            u.addRomance(3);
+        }
+        if (restarurant.isChecked()){
+            u.addRomance(3);
+        }
         Intent i =new Intent(Question6.this, Result.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("User", u);
         i.putExtras(bundle);
         startActivity(i);
-        if (urbex.isChecked()){
-            u.addTemerity(3);
-        }else if (nuclear.isChecked()){
-            u.addTemerity(-1);
-            u.addRomance(-1);
-        }else if (movie.isChecked()){
-            u.addRomance(3);
-        }else if (restarurant.isChecked()){
-            u.addRomance(3);
-        }
+
     }
 }

@@ -51,11 +51,6 @@ public class Question4 extends AppCompatActivity {
     }
 
     public void chooseClass(android.view.View v){
-        Intent i =new Intent(Question4.this, Question5.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("User", u);
-        i.putExtras(bundle);
-        startActivity(i);
         if(bard.isPressed()){
             u.addRomance(1);
         }else if(magi.isPressed()){
@@ -66,6 +61,11 @@ public class Question4 extends AppCompatActivity {
             u.addTemerity(1);
             u.addRomance(1);
         }
+        Intent i =new Intent(Question4.this, Question5.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 
 

@@ -11,10 +11,6 @@ import android.widget.Toast;
 public class Question5 extends AppCompatActivity {
     RadioGroup rg;
     User u;
-    RadioButton destroy;
-    RadioButton family;
-    RadioButton cthuhllu;
-    RadioButton bunker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +19,6 @@ public class Question5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question5);
         rg = findViewById(R.id.MeteoriteButtonGroup);
-        destroy = findViewById(R.id.DestroyMeteoriteButton);
-        family = findViewById(R.id.FamillyButton);
-        cthuhllu = findViewById(R.id.CthuhlluButton);
-        bunker = findViewById(R.id.BunkerButton);
-
     }
 
     public void toast(String msg) {
@@ -36,20 +27,29 @@ public class Question5 extends AppCompatActivity {
 
     public void callNextQuestion(android.view.View v) {
         if(rg.getCheckedRadioButtonId()!=-1) {
+
+            int selectedId = rg.getCheckedRadioButtonId();
+            RadioButton radioButtonMeteoriteFinal = findViewById(selectedId);
+
+            if(radioButtonMeteoriteFinal.getId()==R.id.BunkerButton) {
+                u.addTemerity(-2);
+            }
+            else if(radioButtonMeteoriteFinal.getId() == R.id.FamillyButton ) {
+                u.addRomance(2);
+            }
+            else if(radioButtonMeteoriteFinal.getId() ==R.id.CthuhlluButton) {
+                u.addTemerity(1);
+            }
+            else if(radioButtonMeteoriteFinal.getId()== R.id.DestroyMeteoriteButton) {
+                u.addTemerity(3);
+            }
+
+
             Intent i = new Intent(Question5.this, Question6.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("User", u);
             i.putExtras(bundle);
             startActivity(i);
-            if (bunker.isChecked()){
-                u.addTemerity(-2);
-            }else if (family.isChecked()){
-                u.addRomance(2);
-            }else if (cthuhllu.isChecked()){
-                u.addTemerity(1);
-            }else if (destroy.isChecked()){
-                u.addTemerity(3);
-            }
         }else{
             toast("Veuillez choisir une reponse");
         }
