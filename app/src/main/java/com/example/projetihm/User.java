@@ -1,6 +1,7 @@
 package com.example.projetihm;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
     private String firstname;
@@ -8,6 +9,7 @@ public class User implements Serializable {
     private String gender;
     private float temerityLevel=0;
     private float romanceLevel=0;
+    private ArrayList<String> perksList;
 
     public User(String f,String n){
         this.firstname=f;
@@ -45,4 +47,13 @@ public class User implements Serializable {
     public float getRomanceLevel(){
         return this.romanceLevel;
     }
+
+    public void addPerk(String p){
+        perksList.add(p);
+    }
+
+    public boolean containsPerk(String p){
+        return perksList.contains(p);
+    }
+
 }
