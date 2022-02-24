@@ -46,4 +46,5 @@
     <string name="barbarianTitle">Barbare</string>
     <string name="OtherGenreButton">autre</string>
     <string name="moneyBankTitle">Argent en banque</string>
+    <string name="loadButton">Charger activitées non terminées</string>
 </resources>

@@ -9,12 +9,18 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageButton;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.net.URL;
 
 public class Question4 extends AppCompatActivity {
@@ -55,7 +61,34 @@ public class Question4 extends AppCompatActivity {
         u=new User(savedU);
     }
 
+    public void write_historic_in_file() {
+        File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File save_user = new File(folder, "activity4.txt");
+        try (FileOutputStream fos = new FileOutputStream(save_user)) {
+            PrintStream ps = new PrintStream(fos);
+            ps.println("Name : " + u.getName());
+            ps.println("Prenom : " + u.getFirstname());
+            ps.println("Genre : " + u.getGender());
+            ps.println("Valeur temerite : " + u.getTemerityLevel());
+            ps.println("Valeur romance : " + u.getRomanceLevel());
+            ps.println("Valeur du dé : " + u.getDice());
+            String array = "";
+            for (String elem : u.getPerk()) {
+                array += elem;
+            }
+            ps.println("Perk : " + array);
+            ps.close();
+        } catch (FileNotFoundException e) {
+            //Log.e(APP_TAG,"File not found",e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            //Log.e(APP_TAG,"Error I/O",e);
+        }
+    }
+
     public void chooseClass(android.view.View v){
+
         if(bard.isPressed()){
             u.addRomance(1);
         }else if(magi.isPressed()){
@@ -66,6 +99,8 @@ public class Question4 extends AppCompatActivity {
             u.addTemerity(1);
             u.addRomance(1);
         }
+
+        write_historic_in_file();
         Intent i =new Intent(Question4.this, Question5.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("User", u);

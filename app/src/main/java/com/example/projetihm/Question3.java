@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Random;
 
 public class Question3 extends AppCompatActivity {
@@ -107,7 +113,36 @@ public class Question3 extends AppCompatActivity {
         finish();
     }
 
+    public void write_historic_in_file() {
+        File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File save_user = new File(folder, "activity3.txt");
+        try (FileOutputStream fos = new FileOutputStream(save_user)) {
+            PrintStream ps = new PrintStream(fos);
+            ps.println("Name : " + u.getName());
+            ps.println("Prenom : " + u.getFirstname());
+            ps.println("Genre : " + u.getGender());
+            ps.println("Valeur temerite : " + u.getTemerityLevel());
+            ps.println("Valeur romance : " + u.getRomanceLevel());
+            ps.println("Valeur du dé : " + u.getDice());
+            String array = "";
+            for (String elem : u.getPerk()) {
+                array += elem;
+            }
+            ps.println("Perk : " + array);
+            ps.close();
+        } catch (FileNotFoundException e) {
+            //Log.e(APP_TAG,"File not found",e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            //Log.e(APP_TAG,"Error I/O",e);
+        }
+    }
+
     public void callNextQuestion(android.view.View v) {
+
+        write_historic_in_file();
+
         Intent i =new Intent(Question3.this, Question4.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("User", u);

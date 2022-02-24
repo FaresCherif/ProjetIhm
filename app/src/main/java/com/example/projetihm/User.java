@@ -28,7 +28,16 @@ public class User implements Serializable {
         this.dice = u.dice;
         this.perksList=new ArrayList<>();
         this.perksList.addAll(u.perksList);
+    }
 
+    public User(String f,String n,String g,float t,float r,int d,ArrayList<String> p){
+        this.firstname=f;
+        this.name=n;
+        this.gender=g;
+        this.temerityLevel=t;
+        this.romanceLevel=r;
+        this.dice = d;
+        this.perksList=p;
     }
 
     public void addTemerity(float t){
