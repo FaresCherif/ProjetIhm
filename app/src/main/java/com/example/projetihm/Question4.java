@@ -42,10 +42,6 @@ public class Question4 extends AppCompatActivity {
         bard = findViewById(R.id.bardImage);
         pal = findViewById(R.id.paladinImage);
 
-        //Drawable image_barbare = LoadImageFromWebOperations("https://www.aidedd.org/regles/classes/barbare/");
-        //barb.setImageBitmap(fetchImage("https://www.aidedd.org/assets/regles/classes/barbare.jpg"));
-        //barb.setBackground(image_barbare);
-
         new DownloadImage().execute("https://www.aidedd.org/assets/regles/classes/barbare.jpg", "barb");
         new DownloadImage().execute("https://www.aidedd.org/assets/regles/classes/magicien.jpg", "magi");
         new DownloadImage().execute("https://www.aidedd.org/assets/regles/classes/barde.jpg", "bard");
