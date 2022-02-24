@@ -42,7 +42,7 @@ public class Result extends AppCompatActivity {
             texteResult.setText(R.string.balancedLover);
         }
         else if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
-            image.setImageResource(R.drawable.temeritylover);
+            image.setImageResource(R.drawable.temerritylover);
             texteResult.setText(R.string.temerityLover);
         }
         else if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
