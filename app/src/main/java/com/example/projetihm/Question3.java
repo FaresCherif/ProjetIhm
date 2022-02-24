@@ -65,6 +65,7 @@ public class Question3 extends AppCompatActivity {
         Random rand = new Random();
         int randomNum = rand.nextInt((5) + 1) ;
 
+        u.setDice(randomNum+1);
 
         int numChance = sb.getProgress();
 
