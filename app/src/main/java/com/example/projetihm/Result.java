@@ -3,9 +3,16 @@ package com.example.projetihm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 
 public class Result extends AppCompatActivity {
     private User u;
@@ -49,6 +56,8 @@ public class Result extends AppCompatActivity {
             image.setImageResource(R.drawable.romancelover);
             texteResult.setText(R.string.romanceLover);
         }
+
+        write_historic_in_file();
     }
 
     public boolean between(float valLooked,float min,float max){
@@ -64,5 +73,25 @@ public class Result extends AppCompatActivity {
 
     public void closeApp(android.view.View v){
         finishAffinity();
+    }
+
+    public void write_historic_in_file() {
+        File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File fileout = new File(folder, u.getFirstname()+u.getName()+".txt");
+        try (FileOutputStream fos = new FileOutputStream(fileout)) {
+            PrintStream ps = new PrintStream(fos);
+            ps.println("Start of my historic");
+            ps.println("Name : "+u.getName());
+            ps.println("Prenom : "+u.getFirstname());
+            ps.println("Size : "+u.containsPerk());
+            ps.println("Weight : "+pokemon_weight.getText());
+            ps.close();
+        } catch (FileNotFoundException e) {
+            //Log.e(APP_TAG,"File not found",e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            //Log.e(APP_TAG,"Error I/O",e);
+        }
     }
 }
