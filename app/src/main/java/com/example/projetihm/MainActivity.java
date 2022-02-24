@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,15 +20,18 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private String TAG="ActivitePrincipale";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        verifyStoragePermissions(this);
+        //verifyStoragePermissions(this);
     }
 
     public void load(android.view.View v){
+
+        Log.e(TAG,"load");
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File actual_file = new File("test");//TODO a enlever
 
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             is = new FileInputStream(actual_file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            Log.e(TAG,"file not found");
         }
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is,"UTF-8"));
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             float temerityLevel=0;
             float romanceLevel=0;
             String temp="";
-            ArrayList<String> perksList = new ArrayList<>();;
+            ArrayList<String> perksList = new ArrayList<>();
 
             while ( (line = rd.readLine()) != null ){
                 if (cpt==1){//nom
@@ -112,39 +117,40 @@ public class MainActivity extends AppCompatActivity {
                 }
                 cpt++;
             }
+            Log.e(TAG,name+" "+first_name+" "+activity_number);
             User u = new User(name,first_name,gender,temerityLevel,romanceLevel,dice,perksList);
-            if (activity_number==1){
-                Intent i =new Intent(Question1.this, UserInput.class);
+            if (activity_number==1 || activity_number==0){
+                Intent i =new Intent(MainActivity.this, UserInput.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
                 startActivity(i);
             }else if (activity_number==2){
-                Intent i =new Intent(Question2.this, UserInput.class);
+                Intent i =new Intent(MainActivity.this, Question2.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
                 startActivity(i);
             }else if (activity_number==3){
-                Intent i =new Intent(Question3.this, UserInput.class);
+                Intent i =new Intent(MainActivity.this, Question3.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
                 startActivity(i);
             }else if (activity_number==4){
-                Intent i =new Intent(Question4.this, UserInput.class);
+                Intent i =new Intent(MainActivity.this, Question4.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
                 startActivity(i);
             }else if (activity_number==5){
-                Intent i =new Intent(Question5.this, UserInput.class);
+                Intent i =new Intent(MainActivity.this, Question5.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
                 startActivity(i);
             }else if (activity_number==6){
-                Intent i =new Intent(Question6.this, UserInput.class);
+                Intent i =new Intent(MainActivity.this, Question6.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
                 i.putExtras(bundle);
@@ -157,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
         }catch (NullPointerException e) {
             e.printStackTrace();
         }
+        Log.e(TAG,"fin load");
+
     }
 
     public void callUserInput(android.view.View v){
