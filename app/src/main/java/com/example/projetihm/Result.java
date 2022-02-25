@@ -89,6 +89,7 @@ public class Result extends AppCompatActivity {
         finishAffinity();
     }
 
+
     public void DeleteRecursive(File fileOrDirectory) {
         if (fileOrDirectory.isDirectory()) {
             for (File child : fileOrDirectory.listFiles()) {
@@ -104,9 +105,11 @@ public class Result extends AppCompatActivity {
     public void write_historic_in_file() {
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 
+
         for (File child : folder.listFiles()) {
             DeleteRecursive(child);
         }
+
 
         File save_user = new File(folder, u.getFirstname()+"-"+u.getName()+".txt");
         try (FileOutputStream fos = new FileOutputStream(save_user)) {
