@@ -119,7 +119,13 @@ public class MainActivity extends AppCompatActivity {
             }
             Log.e(TAG,name+" "+first_name+" "+activity_number);
             User u = new User(name,first_name,gender,temerityLevel,romanceLevel,dice,perksList);
-            if (activity_number==1 || activity_number==0){
+            if(activity_number==0){
+                Intent i =new Intent(MainActivity.this, UserInput.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("User", u);
+                i.putExtras(bundle);
+                startActivity(i);
+            }else if (activity_number==1){
                 Intent i =new Intent(MainActivity.this, Question2.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("User", u);
