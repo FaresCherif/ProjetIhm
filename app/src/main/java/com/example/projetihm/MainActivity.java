@@ -17,10 +17,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    private String TAG="ActivitePrincipale";
+    private final String TAG="Main Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.e(TAG,"load");
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File actual_file = new File("test");//TODO a enlever
+        File actual_file = new File("test");//TODO to take out
 
         File file6 = new File(folder, "activity6.txt");
         File file5 = new File(folder, "activity5.txt");
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG,"file not found");
         }
         try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String line;
             int cpt=1;
             String name ="";
@@ -79,41 +81,39 @@ public class MainActivity extends AppCompatActivity {
             int dice=0;
             float temerityLevel=0;
             float romanceLevel=0;
-            String temp="";
+            String temp;
             ArrayList<String> perksList = new ArrayList<>();
 
             while ( (line = rd.readLine()) != null ){
-                if (cpt==1){//nom
-                    name = line.substring(7,line.length());
+                if (cpt==1){//name
+                    name = line.substring(7);
                     System.out.println(name);
                 }
-                if (cpt==2){//prenom
-                    first_name = line.substring(9,line.length());
+                if (cpt==2){//firstname
+                    first_name = line.substring(9);
                     System.out.println(first_name);
                 }
                 if (cpt==3){//genre
-                    gender = line.substring(8,line.length());
+                    gender = line.substring(8);
                     System.out.println(gender);
                 }
-                if (cpt==4){//temerite
-                    temerityLevel = Float.parseFloat(line.substring(18,line.length()));
+                if (cpt==4){//temerity
+                    temerityLevel = Float.parseFloat(line.substring(18));
                     System.out.println(temerityLevel);
                 }
                 if (cpt==5){//romance
-                    romanceLevel = Float.parseFloat(line.substring(17,line.length()));
+                    romanceLevel = Float.parseFloat(line.substring(17));
                     System.out.println(romanceLevel);
                 }
                 if (cpt==6){//dice
-                    dice = Integer.parseInt(line.substring(15,line.length()));
+                    dice = Integer.parseInt(line.substring(15));
                     System.out.println(dice);
                 }
                 if (cpt==7){//perk
-                    temp = line.substring(7,line.length());
+                    temp = line.substring(7);
                     System.out.println(temp);
                     String[] perk_total =temp.split("-");
-                    for(String elem : perk_total){
-                        perksList.add(elem);
-                    }
+                    Collections.addAll(perksList,perk_total);
                 }
                 cpt++;
             }
@@ -158,9 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }catch (NullPointerException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
         Log.e(TAG,"fin load");
@@ -177,18 +175,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    // Listes des permissions
+    // permission lists
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
+    private final static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     public static void verifyStoragePermissions(Activity activity) {
-// Vérifie si nous avons les droits d'écriture
+// check writing write
         int permission = ActivityCompat.checkSelfPermission(activity,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (permission != PackageManager.PERMISSION_GRANTED) {
-// Aie, il faut les demander àl'utilisateur
+// ask user
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS_STORAGE,

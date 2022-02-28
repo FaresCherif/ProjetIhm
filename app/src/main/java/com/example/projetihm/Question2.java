@@ -9,7 +9,6 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -21,8 +20,8 @@ public class Question2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         savedU = new User(u);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
@@ -56,19 +55,17 @@ public class Question2 extends AppCompatActivity {
             ps.println("Valeur temerite : " + u.getTemerityLevel());
             ps.println("Valeur romance : " + u.getRomanceLevel());
             ps.println("Valeur du dé : " + u.getDice());
-            String array = "";
+            StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
-                array += elem;
+                array.append(elem);
             }
             ps.println("Perk : " + array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 
     public void callNextQuestion(android.view.View v) {

@@ -16,7 +16,6 @@ import android.widget.ImageButton;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +23,6 @@ import java.io.PrintStream;
 import java.net.URL;
 
 public class Question4 extends AppCompatActivity {
-    private String DndClass="";
     private ImageButton barb;
     private ImageButton pal;
     private ImageButton magi;
@@ -36,8 +34,8 @@ public class Question4 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         savedU = new User(u);
 
         super.onCreate(savedInstanceState);
@@ -72,19 +70,17 @@ public class Question4 extends AppCompatActivity {
             ps.println("Valeur temerite : " + u.getTemerityLevel());
             ps.println("Valeur romance : " + u.getRomanceLevel());
             ps.println("Valeur du dé : " + u.getDice());
-            String array = "";
+            StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
-                array += elem;
+                array.append(elem);
             }
             ps.println("Perk : " + array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 
     public void chooseClass(android.view.View v){
@@ -109,9 +105,9 @@ public class Question4 extends AppCompatActivity {
     }
 
 
-    private void setImage(Drawable drawable,String classe)
+    private void setImage(Drawable drawable,String DndClass)
     {
-        switch (classe){
+        switch (DndClass){
             case ("barb") :
                 barb.setImageDrawable(drawable);
                 break;
@@ -134,7 +130,7 @@ public class Question4 extends AppCompatActivity {
 
     public class DownloadImage extends AsyncTask<String, Integer, Drawable> {
 
-        private String classe;
+        private String DndClass;
 
         @Override
         protected Drawable doInBackground(String... arg0) {
@@ -143,13 +139,13 @@ public class Question4 extends AppCompatActivity {
 
         protected void onPostExecute(Drawable image)
         {
-            setImage(image,classe);
+            setImage(image,DndClass);
         }
 
 
-        private Drawable downloadImage(String _url,String clas)
+        private Drawable downloadImage(String _url,String dndC)
         {
-            classe=clas;
+            DndClass=dndC;
             URL url;
             BufferedOutputStream out;
             InputStream in;

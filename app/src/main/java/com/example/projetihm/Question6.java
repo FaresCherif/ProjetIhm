@@ -6,10 +6,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.widget.Switch;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -20,12 +18,12 @@ public class Question6 extends AppCompatActivity {
     private SwitchCompat nuclear;
     private SwitchCompat urbex;
     private SwitchCompat movie;
-    private SwitchCompat restarurant;
+    private SwitchCompat restaurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         savedU = new User(u);
 
         super.onCreate(savedInstanceState);
@@ -33,7 +31,7 @@ public class Question6 extends AppCompatActivity {
         nuclear = findViewById(R.id.nuclear);
         urbex = findViewById(R.id.urbex);
         movie = findViewById(R.id.movie);
-        restarurant = findViewById(R.id.restaurant);
+        restaurant = findViewById(R.id.restaurant);
     }
 
     @Override
@@ -57,19 +55,17 @@ public class Question6 extends AppCompatActivity {
             ps.println("Valeur temerite : " + u.getTemerityLevel());
             ps.println("Valeur romance : " + u.getRomanceLevel());
             ps.println("Valeur du dé : " + u.getDice());
-            String array = "";
+            StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
-                array += elem;
+                array.append(elem);
             }
             ps.println("Perk : " + array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 
     public void callNextQuestion(android.view.View v) {
@@ -83,7 +79,7 @@ public class Question6 extends AppCompatActivity {
         if (movie.isChecked()){
             u.addRomance(3);
         }
-        if (restarurant.isChecked()){
+        if (restaurant.isChecked()){
             u.addRomance(3);
         }
 

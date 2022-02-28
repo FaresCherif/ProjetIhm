@@ -3,21 +3,16 @@ package com.example.projetihm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -30,12 +25,11 @@ public class Question3 extends AppCompatActivity {
     private ImageView dice;
     private Button rollButton;
     private LinearLayout nextQuestion;
-    private String TAG="Question3Rotation";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         savedU = new User(u);
 
         super.onCreate(savedInstanceState);
@@ -124,19 +118,17 @@ public class Question3 extends AppCompatActivity {
             ps.println("Valeur temerite : " + u.getTemerityLevel());
             ps.println("Valeur romance : " + u.getRomanceLevel());
             ps.println("Valeur du dé : " + u.getDice());
-            String array = "";
+            StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
-                array += elem;
+                array.append(elem);
             }
             ps.println("Perk : " + array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 
     public void callNextQuestion(android.view.View v) {

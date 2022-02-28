@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User implements Serializable {
-    private String firstname;
-    private String name;
+    private final String firstname;
+    private final String name;
     private String gender;
     private int dice;
     private float temerityLevel=0;
     private float romanceLevel=0;
-    private ArrayList<String> perksList;
+    private final ArrayList<String> perksList;
 
     public User(String f,String n){
         this.firstname=f;

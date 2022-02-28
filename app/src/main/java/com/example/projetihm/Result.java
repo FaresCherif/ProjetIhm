@@ -16,18 +16,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public class Result extends AppCompatActivity {
     private User u;
-    private TextView fullName;
-    private ImageView image;
-    private TextView texteResult;
-    boolean rich = false;
-    boolean perfect = false;
-    boolean balanced = false;
-    boolean temerity = false;
-    boolean romance = false;
+    int numRomance;
 
 
     @Override
@@ -36,9 +29,9 @@ public class Result extends AppCompatActivity {
         u = (User) transmis.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        fullName = findViewById(R.id.FullName);
-        image= findViewById(R.id.ImageResult);
-        texteResult=findViewById(R.id.ResultText);
+        TextView fullName = findViewById(R.id.FullName);
+        ImageView image = findViewById(R.id.ImageResult);
+        TextView texteResult = findViewById(R.id.ResultText);
 
         String full = u.getFirstname()+" "+u.getName();
         fullName.setText(full);
@@ -48,37 +41,39 @@ public class Result extends AppCompatActivity {
         if(u.containsPerk("rich")){
             image.setImageResource(R.drawable.richlover);
             texteResult.setText(R.string.richLover);
-            rich = true;
+            numRomance=0;
         }
         else if(u.getTemerityLevel()>5 && u.getRomanceLevel() > 5){
             image.setImageResource(R.drawable.perfectlover);
             texteResult.setText(R.string.perfectLover);
-            perfect = true;
+            numRomance=1;
         }
         else if(between(u.getTemerityLevel(),0,5) && between(u.getRomanceLevel(),0,5)){
             image.setImageResource(R.drawable.balancedlover);
             texteResult.setText(R.string.balancedLover);
-            balanced = true;
+            numRomance=2;
         }
         else if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
             image.setImageResource(R.drawable.temerritylover);
             texteResult.setText(R.string.temerityLover);
-            temerity = true;
+            numRomance=3;
         }
         else if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
             image.setImageResource(R.drawable.romancelover);
             texteResult.setText(R.string.romanceLover);
-            romance = true;
+            numRomance=4;
+        }
+        else{
+            image.setImageResource(R.drawable.romancelover);
+            texteResult.setText(R.string.romanceLover);
+            numRomance=5;
         }
 
-        write_historic_in_file();
+        //write_historic_in_file();
     }
 
     public boolean between(float valLooked,float min,float max){
-        if(valLooked>=min && valLooked<=max){
-            return true;
-        }
-        return false;
+        return valLooked >= min && valLooked <= max;
     }
 
     public void toast(String msg) {
@@ -120,20 +115,18 @@ public class Result extends AppCompatActivity {
             ps.println("Valeur temerite : "+u.getTemerityLevel());
             ps.println("Valeur romance : "+u.getRomanceLevel());
             ps.println("Valeur du dé : "+u.getDice());
-            String array ="";
+            StringBuilder array = new StringBuilder();
             for(String elem : u.getPerk()){
-                array+=elem;
-                array+="-";
+                array.append(elem);
+                array.append("-");
             }
             ps.println("Perk : "+array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
 
         File save_succes = new File(folder, "succes.txt");
 
@@ -144,33 +137,30 @@ public class Result extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String line;
             while ( (line = rd.readLine()) != null ){
-                if(line.matches("Succes obtenu : temerityLover") && temerity==true){ //--regex of what to search--
+                if(line.matches("Succes obtenu : temerityLover") && numRomance==3){ //--regex of what to search--
                     //--do something---
                     System.out.println("aaaa");
                     return; //--if not want to search further--
-                }else if (line.matches("Succes obtenu : richLover") && rich==true){
+                }else if (line.matches("Succes obtenu : richLover") && numRomance==0){
                     System.out.println("aaaa");
                     return; //--if not want to search further--
-                }else if (line.matches("Succes obtenu : perfectLover") && perfect==true){
+                }else if (line.matches("Succes obtenu : perfectLover") && numRomance==1){
                     System.out.println("aaaa");
                     return; //--if not want to search further--
-                }else if (line.matches("Succes obtenu : balancedLover") && balanced==true){
+                }else if (line.matches("Succes obtenu : balancedLover") && numRomance==2){
                     System.out.println("aaaa");
                     return; //--if not want to search further--
-                }else if (line.matches("Succes obtenu : romanceLover") && romance==true){
+                }else if (line.matches("Succes obtenu : romanceLover") && numRomance==4){
                     System.out.println("aaaa");
                     return; //--if not want to search further--
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }catch (NullPointerException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
-
 
 
         try (FileOutputStream fos = new FileOutputStream(save_succes,true)) {
@@ -199,12 +189,10 @@ public class Result extends AppCompatActivity {
 
             ps.println("\n");
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 }

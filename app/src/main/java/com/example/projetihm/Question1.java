@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -28,8 +27,8 @@ public class Question1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         savedU = new User(u);
 
         super.onCreate(savedInstanceState);
@@ -42,28 +41,25 @@ public class Question1 extends AppCompatActivity {
 
         rg = findViewById(R.id.GenreButtonGroup);
 
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId==R.id.MaleGenreButton) {
-                    nameGenre = "male";
-                    otherGenreTitle.setVisibility(View.INVISIBLE);
-                    otherGenre.setVisibility(View.INVISIBLE);
-                }
-                else if(checkedId==R.id.FemaleGenreButton) {
-                    nameGenre = "female";
-                    otherGenreTitle.setVisibility(View.INVISIBLE);
-                    otherGenre.setVisibility(View.INVISIBLE);
-                }
-                else if(checkedId== R.id.NonBinaryGenreButton) {
-                    nameGenre = "non binary";
-                    otherGenreTitle.setVisibility(View.INVISIBLE);
-                    otherGenre.setVisibility(View.INVISIBLE);
-                }
-                else if(checkedId== R.id.OtherGenreButton) {
-                    otherGenreTitle.setVisibility(View.VISIBLE);
-                    otherGenre.setVisibility(View.VISIBLE);
-                }
+        rg.setOnCheckedChangeListener((group, checkedId) -> {
+            if(checkedId==R.id.MaleGenreButton) {
+                nameGenre = "male";
+                otherGenreTitle.setVisibility(View.INVISIBLE);
+                otherGenre.setVisibility(View.INVISIBLE);
+            }
+            else if(checkedId==R.id.FemaleGenreButton) {
+                nameGenre = "female";
+                otherGenreTitle.setVisibility(View.INVISIBLE);
+                otherGenre.setVisibility(View.INVISIBLE);
+            }
+            else if(checkedId== R.id.NonBinaryGenreButton) {
+                nameGenre = "non binary";
+                otherGenreTitle.setVisibility(View.INVISIBLE);
+                otherGenre.setVisibility(View.INVISIBLE);
+            }
+            else if(checkedId== R.id.OtherGenreButton) {
+                otherGenreTitle.setVisibility(View.VISIBLE);
+                otherGenre.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -93,19 +89,17 @@ public class Question1 extends AppCompatActivity {
             ps.println("Valeur temerite : " + u.getTemerityLevel());
             ps.println("Valeur romance : " + u.getRomanceLevel());
             ps.println("Valeur du dé : " + u.getDice());
-            String array = "";
+            StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
-                array += elem;
+                array.append(elem);
             }
             ps.println("Perk : " + array);
             ps.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Log.e(APP_TAG,"Error I/O",e);
-        }
+        }//Log.e(APP_TAG,"Error I/O",e);
+
     }
 
     public void callNextQuestion(android.view.View v){
@@ -138,7 +132,7 @@ public class Question1 extends AppCompatActivity {
             i.putExtras(bundle);
             startActivity(i);
         }else{
-            toast("Veuillez choisir un genre");
+            toast(v.getResources().getString(R.string.toastGenre));
         }
     }
 }
