@@ -69,7 +69,7 @@ public class Result extends AppCompatActivity {
             numRomance=5;
         }
 
-        //write_historic_in_file();
+        write_historic_in_file();
     }
 
     public boolean between(float valLooked,float min,float max){
