@@ -2,6 +2,7 @@ package com.example.projetihm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +15,6 @@ import android.util.Log;
 import android.widget.ImageButton;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -128,6 +128,7 @@ public class Question4 extends AppCompatActivity {
         finish();
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class DownloadImage extends AsyncTask<String, Integer, Drawable> {
 
         private String DndClass;
@@ -147,7 +148,6 @@ public class Question4 extends AppCompatActivity {
         {
             DndClass=dndC;
             URL url;
-            BufferedOutputStream out;
             InputStream in;
             BufferedInputStream buf;
 

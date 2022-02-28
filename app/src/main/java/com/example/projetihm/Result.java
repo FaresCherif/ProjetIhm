@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 public class Result extends AppCompatActivity {
     private User u;
@@ -87,7 +88,7 @@ public class Result extends AppCompatActivity {
 
     public void DeleteRecursive(File fileOrDirectory) {
         if (fileOrDirectory.isDirectory()) {
-            for (File child : fileOrDirectory.listFiles()) {
+            for (File child : Objects.requireNonNull(fileOrDirectory.listFiles())) {
                 if(child.getName().contains("activity")) {
                     child.delete();
                     DeleteRecursive(child);
@@ -101,7 +102,7 @@ public class Result extends AppCompatActivity {
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 
 
-        for (File child : folder.listFiles()) {
+        for (File child : Objects.requireNonNull(folder.listFiles())) {
             DeleteRecursive(child);
         }
 

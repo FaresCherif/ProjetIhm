@@ -12,15 +12,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class Success extends AppCompatActivity {
 
-    private TextView succes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
-        succes = (TextView)findViewById(R.id.listeSucces);
+        TextView succes = (TextView) findViewById(R.id.listeSucces);
 
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File save_succes = new File(folder, "succes.txt");
@@ -31,15 +31,15 @@ public class Success extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String a_ecrire="";
+        StringBuilder a_ecrire= new StringBuilder();
         int nb_succes=0;
         try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String line;
 
 
             while ( (line = rd.readLine()) != null ){
-                a_ecrire+=line+" ";
+                a_ecrire.append(line).append(" ");
                 if(line.matches("Succes obtenu : temerityLover")){ //--regex of what to search--
                     nb_succes++;
                 }
@@ -55,15 +55,15 @@ public class Success extends AppCompatActivity {
                 if (line.matches("Succes obtenu : romanceLover")){
                     nb_succes++;
                 }
-                a_ecrire+="\n";
+                a_ecrire.append("\n");
             }
-            a_ecrire+=nb_succes+"/5";
-            succes.setText(a_ecrire);
+            a_ecrire.append(nb_succes).append("/5");
+            succes.setText(a_ecrire.toString());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException a){
-            a_ecrire+=nb_succes+"/5";
-            succes.setText(a_ecrire);
+            a_ecrire.append(nb_succes).append("/5");
+            succes.setText(a_ecrire.toString());
         }
 
     }
