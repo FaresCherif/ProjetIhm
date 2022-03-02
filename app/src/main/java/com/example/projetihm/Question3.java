@@ -114,30 +114,32 @@ public class Question3 extends AppCompatActivity {
         numChance = savedInstanceState.getInt("numChance");
         randomNum = savedInstanceState.getInt("randomNum");
 
-        switch (randomNum){
-            case 0:
-                dice.setImageResource(R.drawable.dice1);
-                break;
-            case 1:
-                dice.setImageResource(R.drawable.dice2);
-                break;
-            case 2:
-                dice.setImageResource(R.drawable.dice3);
-                break;
-            case 3:
-                dice.setImageResource(R.drawable.dice4);
-                break;
-            case 4:
-                dice.setImageResource(R.drawable.dice5);
-                break;
-            case 5:
-                dice.setImageResource(R.drawable.dice6);
-                break;
+        if(randomNum!=-1) {
+            switch (randomNum) {
+                case 0:
+                    dice.setImageResource(R.drawable.dice1);
+                    break;
+                case 1:
+                    dice.setImageResource(R.drawable.dice2);
+                    break;
+                case 2:
+                    dice.setImageResource(R.drawable.dice3);
+                    break;
+                case 3:
+                    dice.setImageResource(R.drawable.dice4);
+                    break;
+                case 4:
+                    dice.setImageResource(R.drawable.dice5);
+                    break;
+                case 5:
+                    dice.setImageResource(R.drawable.dice6);
+                    break;
+            }
+            nextQuestion.setVisibility(View.VISIBLE);
+            dice.setVisibility(View.VISIBLE);
+            rollButton.setEnabled(false);
+            sb.setEnabled(false);
         }
-        nextQuestion.setVisibility(View.VISIBLE);
-        dice.setVisibility(View.VISIBLE);
-        rollButton.setEnabled(false);
-        sb.setEnabled(false);
 
     }
 
