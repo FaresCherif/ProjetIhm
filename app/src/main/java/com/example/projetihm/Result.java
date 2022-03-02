@@ -73,15 +73,6 @@ public class Result extends AppCompatActivity {
 
         write_historic_in_file();
 
-        SharedPreferences settings = getSharedPreferences("projet_IHM", MODE_PRIVATE);
-        SharedPreferences.Editor prefEditor = settings.edit();
-        prefEditor.putString("User Name", u.getName());
-        prefEditor.putString("User FIrstName", u.getFirstname());
-        prefEditor.putString("Gender", u.getGender());
-        prefEditor.putInt("Dice Value", u.getDice());
-        prefEditor.putFloat("Romance Level", u.getRomanceLevel());
-        prefEditor.putFloat("Temerity Level", u.getTemerityLevel());
-        prefEditor.commit();
     }
 
     public boolean between(float valLooked,float min,float max){
@@ -97,16 +88,11 @@ public class Result extends AppCompatActivity {
     }
 
 
-    public void DeleteRecursive(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory()) {
-            for (File child : Objects.requireNonNull(fileOrDirectory.listFiles())) {
-                if(child.getName().contains("activity")) {
-                    child.delete();
-                    DeleteRecursive(child);
-                }
-            }
+    public void DeleteRecursive(File child) {
+        if(child.getName().contains("activity")) {
+            child.delete();
+            //System.out.println("name child "+child.getName());
         }
-        fileOrDirectory.delete();
     }
 
     public void write_historic_in_file() {
@@ -114,6 +100,7 @@ public class Result extends AppCompatActivity {
 
 
         for (File child : Objects.requireNonNull(folder.listFiles())) {
+            //System.out.println("child "+child.getName());
             DeleteRecursive(child);
         }
 
@@ -152,17 +139,16 @@ public class Result extends AppCompatActivity {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String line;
             while ( (line = rd.readLine()) != null ){
-                if(line.matches("Succes obtenu : temerityLover") && numRomance==3){ //--regex of what to search--
-                    //--do something---
-                    return; //--if not want to search further--
+                if(line.matches("Succes obtenu : temerityLover") && numRomance==3){
+                    return;
                 }else if (line.matches("Succes obtenu : richLover") && numRomance==0){
-                    return; //--if not want to search further--
+                    return;
                 }else if (line.matches("Succes obtenu : perfectLover") && numRomance==1){
-                    return; //--if not want to search further--
+                    return;
                 }else if (line.matches("Succes obtenu : balancedLover") && numRomance==2){
-                    return; //--if not want to search further--
+                    return;
                 }else if (line.matches("Succes obtenu : romanceLover") && numRomance==4){
-                    return; //--if not want to search further--
+                    return;
                 }
             }
         } catch (IOException | NullPointerException e) {
@@ -176,6 +162,11 @@ public class Result extends AppCompatActivity {
             ps.println("Name : "+u.getName());
             ps.println("Prenom : "+u.getFirstname());
 
+            SharedPreferences settings = getSharedPreferences("projet_IHM", MODE_PRIVATE);
+            int total_number_succes=0;
+            total_number_succes = settings.getInt("Number of succes",total_number_succes);
+
+            System.out.println(u.getTemerityLevel()+" "+u.getRomanceLevel());
             if(u.containsPerk("rich")){
                 ps.println("Succes obtenu : "+"richLover");
             }
@@ -193,9 +184,17 @@ public class Result extends AppCompatActivity {
             }else{
                 ps.println("Succes obtenu : "+"no succes");
             }
+            System.out.println("total");
+            System.out.println(total_number_succes);
+            SharedPreferences.Editor prefEditor = settings.edit();
+            total_number_succes++;
+            System.out.println(total_number_succes);
+            prefEditor.putInt("Number of succes", total_number_succes);
+            prefEditor.apply();
 
             ps.println("\n");
-            ps.close();
+            fos.close();
+
         } catch (IOException e) {
             //Log.e(APP_TAG,"File not found",e);
             e.printStackTrace();
