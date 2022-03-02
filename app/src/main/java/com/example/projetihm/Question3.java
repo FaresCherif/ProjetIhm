@@ -25,6 +25,8 @@ public class Question3 extends AppCompatActivity {
     private ImageView dice;
     private Button rollButton;
     private LinearLayout nextQuestion;
+    private int numChance=-1;
+    private int randomNum=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,6 @@ public class Question3 extends AppCompatActivity {
         rollButton=findViewById(R.id.RollDiceButton);
         nextQuestion=findViewById(R.id.layoutButton);
         toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
-
 
     }
 
@@ -63,11 +64,11 @@ public class Question3 extends AppCompatActivity {
         }
 
         Random rand = new Random();
-        int randomNum = rand.nextInt((5) + 1) ;
+        randomNum = rand.nextInt((5) + 1) ;
 
         u.setDice(randomNum+1);
 
-        int numChance = sb.getProgress();
+        numChance = sb.getProgress();
 
         if(numChance>=randomNum){
             u.addRomance(numChance);
@@ -99,9 +100,51 @@ public class Question3 extends AppCompatActivity {
         nextQuestion.setVisibility(View.VISIBLE);
         dice.setVisibility(View.VISIBLE);
         rollButton.setEnabled(false);
+        sb.setEnabled(false);
 
     }
 
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("numChance",numChance );
+        savedInstanceState.putInt("randomNum",randomNum );
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        numChance = savedInstanceState.getInt("numChance");
+        randomNum = savedInstanceState.getInt("randomNum");
+
+        switch (randomNum){
+            case 0:
+                dice.setImageResource(R.drawable.dice1);
+                break;
+            case 1:
+                dice.setImageResource(R.drawable.dice2);
+                break;
+            case 2:
+                dice.setImageResource(R.drawable.dice3);
+                break;
+            case 3:
+                dice.setImageResource(R.drawable.dice4);
+                break;
+            case 4:
+                dice.setImageResource(R.drawable.dice5);
+                break;
+            case 5:
+                dice.setImageResource(R.drawable.dice6);
+                break;
+        }
+        nextQuestion.setVisibility(View.VISIBLE);
+        dice.setVisibility(View.VISIBLE);
+        rollButton.setEnabled(false);
+        sb.setEnabled(false);
+
+    }
 
     public void back(android.view.View v){
         finish();
