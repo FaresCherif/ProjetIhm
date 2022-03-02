@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.e(TAG,"load");
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File actual_file = new File("test");//TODO to take out
+        File actual_file = new File("test");
 
         File file6 = new File(folder, "activity6.txt");
         File file5 = new File(folder, "activity5.txt");
