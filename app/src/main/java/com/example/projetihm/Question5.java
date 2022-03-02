@@ -50,11 +50,11 @@ public class Question5 extends AppCompatActivity {
         try (FileOutputStream fos = new FileOutputStream(save_user)) {
             PrintStream ps = new PrintStream(fos);
             ps.println("Name : " + u.getName());
-            ps.println("Prenom : " + u.getFirstname());
+            ps.println("FirstName : " + u.getFirstname());
             ps.println("Genre : " + u.getGender());
-            ps.println("Valeur temerite : " + u.getTemerityLevel());
-            ps.println("Valeur romance : " + u.getRomanceLevel());
-            ps.println("Valeur du dé : " + u.getDice());
+            ps.println("Temerity value : " + u.getTemerityLevel());
+            ps.println("Romance value : " + u.getRomanceLevel());
+            ps.println("Dice value : " + u.getDice());
             StringBuilder array = new StringBuilder();
             for (String elem : u.getPerk()) {
                 array.append(elem);
