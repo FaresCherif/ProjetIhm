@@ -8,11 +8,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -84,17 +86,25 @@ public class Question4 extends AppCompatActivity {
     }
 
     public void chooseClass(android.view.View v){
-
+        MediaPlayer music = null;
         if(bard.isPressed()){
             u.addRomance(1);
+            music = MediaPlayer.create(Question4.this, R.raw.bardmusic);
         }else if(magi.isPressed()){
             u.addTemerity(-1);
+            music = MediaPlayer.create(Question4.this, R.raw.magicmusic);
         }else if(barb.isPressed()){
             u.addTemerity(3);
+            music = MediaPlayer.create(Question4.this, R.raw.barbarianmusic);
         }else if(pal.isPressed()){
             u.addTemerity(1);
             u.addRomance(1);
+            music = MediaPlayer.create(Question4.this, R.raw.paladinmusic);
         }
+        if(music!=null) {
+            music.start();
+        }
+
 
         write_historic_in_file();
         Intent i =new Intent(Question4.this, Question5.class);

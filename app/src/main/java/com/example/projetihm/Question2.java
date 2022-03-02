@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.SeekBar;
-import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +23,6 @@ public class Question2 extends AppCompatActivity {
         savedU = new User(u);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
-        toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
 
         sb=findViewById(R.id.FidelityScrollBar);
     }
@@ -40,9 +37,6 @@ public class Question2 extends AppCompatActivity {
         finish();
     }
 
-    public void toast(String msg) {
-        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
-    }
 
     public void write_historic_in_file() {
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);

@@ -58,5 +58,6 @@
     <string name="toastBadNameUserInput">Enter an appropriate name and last name</string>
     <string name="toastGenre">Please choose a genre</string>
     <string name="toastChooseAnswer">Please choose an answer</string>
+    <string name="noFile">No file to load</string>
 
 </resources>

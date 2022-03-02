@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,7 +39,6 @@ public class Question3 extends AppCompatActivity {
         dice = findViewById(R.id.imageDice);
         rollButton=findViewById(R.id.RollDiceButton);
         nextQuestion=findViewById(R.id.layoutButton);
-        toast(u.getRomanceLevel()+" "+u.getTemerityLevel());
 
     }
 
@@ -50,9 +48,6 @@ public class Question3 extends AppCompatActivity {
         u=new User(savedU);
     }
 
-    public void toast(String msg) {
-        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
-    }
 
     public void rollDice(android.view.View v){
 
