@@ -44,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="10"
+            android:thumb="@drawable/heart"
             android:progress="1" />
 
     </LinearLayout>
