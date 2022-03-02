@@ -2,6 +2,7 @@ package com.example.projetihm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.ImageView;
@@ -71,6 +72,16 @@ public class Result extends AppCompatActivity {
         }
 
         write_historic_in_file();
+
+        SharedPreferences settings = getSharedPreferences("projet_IHM", MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = settings.edit();
+        prefEditor.putString("User Name", u.getName());
+        prefEditor.putString("User FIrstName", u.getFirstname());
+        prefEditor.putString("Gender", u.getGender());
+        prefEditor.putInt("Dice Value", u.getDice());
+        prefEditor.putFloat("Romance Level", u.getRomanceLevel());
+        prefEditor.putFloat("Temerity Level", u.getTemerityLevel());
+        prefEditor.commit();
     }
 
     public boolean between(float valLooked,float min,float max){
