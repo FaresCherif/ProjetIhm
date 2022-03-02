@@ -27,13 +27,13 @@ public class Result extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle transmis = getIntent().getExtras();
-        u = (User) transmis.getSerializable("User");
+        Bundle dataSent = getIntent().getExtras();
+        u = (User) dataSent.getSerializable("User");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         TextView fullName = findViewById(R.id.FullName);
         ImageView image = findViewById(R.id.ImageResult);
-        TextView texteResult = findViewById(R.id.ResultText);
+        TextView textResult = findViewById(R.id.ResultText);
 
         String full = u.getFirstname()+" "+u.getName();
         fullName.setText(full);
@@ -42,32 +42,32 @@ public class Result extends AppCompatActivity {
 
         if(u.containsPerk("rich")){
             image.setImageResource(R.drawable.richlover);
-            texteResult.setText(R.string.richLover);
+            textResult.setText(R.string.richLover);
             numRomance=0;
         }
         else if(u.getTemerityLevel()>5 && u.getRomanceLevel() > 5){
             image.setImageResource(R.drawable.perfectlover);
-            texteResult.setText(R.string.perfectLover);
+            textResult.setText(R.string.perfectLover);
             numRomance=1;
         }
         else if(between(u.getTemerityLevel(),0,5) && between(u.getRomanceLevel(),0,5)){
             image.setImageResource(R.drawable.balancedlover);
-            texteResult.setText(R.string.balancedLover);
+            textResult.setText(R.string.balancedLover);
             numRomance=2;
         }
         else if(u.getTemerityLevel()>10 && u.getRomanceLevel() < 5){
             image.setImageResource(R.drawable.temerritylover);
-            texteResult.setText(R.string.temerityLover);
+            textResult.setText(R.string.temerityLover);
             numRomance=3;
         }
         else if(u.getTemerityLevel()<5 && u.getRomanceLevel() > 10){
             image.setImageResource(R.drawable.romancelover);
-            texteResult.setText(R.string.romanceLover);
+            textResult.setText(R.string.romanceLover);
             numRomance=4;
         }
         else{
             image.setImageResource(R.drawable.romancelover);
-            texteResult.setText(R.string.romanceLover);
+            textResult.setText(R.string.romanceLover);
             numRomance=5;
         }
 
@@ -121,12 +121,12 @@ public class Result extends AppCompatActivity {
         File save_user = new File(folder, u.getFirstname()+"-"+u.getName()+".txt");
         try (FileOutputStream fos = new FileOutputStream(save_user)) {
             PrintStream ps = new PrintStream(fos);
-            ps.println("Name : "+u.getName());
-            ps.println("Prenom : "+u.getFirstname());
-            ps.println("Genre : "+u.getGender());
-            ps.println("Valeur temerite : "+u.getTemerityLevel());
-            ps.println("Valeur romance : "+u.getRomanceLevel());
-            ps.println("Valeur du dé : "+u.getDice());
+            ps.println("Name : " + u.getName());
+            ps.println("FirstName : " + u.getFirstname());
+            ps.println("Genre : " + u.getGender());
+            ps.println("Temerity value : " + u.getTemerityLevel());
+            ps.println("Romance value : " + u.getRomanceLevel());
+            ps.println("Dice value : " + u.getDice());
             StringBuilder array = new StringBuilder();
             for(String elem : u.getPerk()){
                 array.append(elem);
@@ -140,11 +140,11 @@ public class Result extends AppCompatActivity {
         }//Log.e(APP_TAG,"Error I/O",e);
 
 
-        File save_succes = new File(folder, "succes.txt");
+        File save_success = new File(folder, "succes.txt");
 
         FileInputStream is = null;
         try {
-            is = new FileInputStream(save_succes);
+            is = new FileInputStream(save_success);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -154,19 +154,14 @@ public class Result extends AppCompatActivity {
             while ( (line = rd.readLine()) != null ){
                 if(line.matches("Succes obtenu : temerityLover") && numRomance==3){ //--regex of what to search--
                     //--do something---
-                    System.out.println("aaaa");
                     return; //--if not want to search further--
                 }else if (line.matches("Succes obtenu : richLover") && numRomance==0){
-                    System.out.println("aaaa");
                     return; //--if not want to search further--
                 }else if (line.matches("Succes obtenu : perfectLover") && numRomance==1){
-                    System.out.println("aaaa");
                     return; //--if not want to search further--
                 }else if (line.matches("Succes obtenu : balancedLover") && numRomance==2){
-                    System.out.println("aaaa");
                     return; //--if not want to search further--
                 }else if (line.matches("Succes obtenu : romanceLover") && numRomance==4){
-                    System.out.println("aaaa");
                     return; //--if not want to search further--
                 }
             }
@@ -175,7 +170,7 @@ public class Result extends AppCompatActivity {
         }
 
 
-        try (FileOutputStream fos = new FileOutputStream(save_succes,true)) {
+        try (FileOutputStream fos = new FileOutputStream(save_success,true)) {
             PrintStream ps = new PrintStream(fos);
 
             ps.println("Name : "+u.getName());
