@@ -6,11 +6,11 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,13 +30,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         verifyStoragePermissions(this);
+
+
+    }
+    public void toast(String msg) {
+        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
 
     public void load(android.view.View v){
 
         Log.e(TAG,"load");
         File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File actual_file = new File("test");//TODO to take out
+        File actual_file = new File("test");
 
         File file6 = new File(folder, "activity6.txt");
         File file5 = new File(folder, "activity5.txt");
@@ -71,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.e(TAG,"file not found");
+            toast(v.getResources().getString(R.string.noFile));
+
         }
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));

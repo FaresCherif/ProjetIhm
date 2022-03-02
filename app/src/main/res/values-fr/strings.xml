@@ -50,4 +50,5 @@
     <string name="toastBadNameUserInput">Entrez un nom et prenom coherent</string>
     <string name="toastGenre">Veuillez choisir un genre</string>
     <string name="toastChooseAnswer">Veuillez choisir une reponse</string>
+    <string name="noFile">Pas de fichier a charger</string>
 </resources>
