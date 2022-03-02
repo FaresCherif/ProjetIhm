@@ -2,6 +2,7 @@ package com.example.projetihm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.TextView;
@@ -57,7 +58,12 @@ public class Success extends AppCompatActivity {
                 }
                 a_ecrire.append("\n");
             }
-            a_ecrire.append(nb_succes).append("/5");
+            SharedPreferences settings = getSharedPreferences("projet_IHM", MODE_PRIVATE);
+            int total_number_succes=0;
+            total_number_succes = settings.getInt("Number of succes",total_number_succes);
+
+            System.out.println("succ"+total_number_succes);
+            a_ecrire.append(total_number_succes).append("/5");//nb_succes
             succes.setText(a_ecrire.toString());
         } catch (IOException e) {
             e.printStackTrace();
