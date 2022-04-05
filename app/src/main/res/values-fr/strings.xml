@@ -51,4 +51,5 @@
     <string name="toastGenre">Veuillez choisir un genre</string>
     <string name="toastChooseAnswer">Veuillez choisir une reponse</string>
     <string name="noFile">Pas de fichier a charger</string>
+    <string name="choose_one_class">Choissisez une classe</string>
 </resources>

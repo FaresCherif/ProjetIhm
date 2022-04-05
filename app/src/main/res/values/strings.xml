@@ -59,5 +59,6 @@
     <string name="toastGenre">Please choose a genre</string>
     <string name="toastChooseAnswer">Please choose an answer</string>
     <string name="noFile">No file to load</string>
+    <string name="choose_one_class">Choose one class</string>
 
 </resources>
